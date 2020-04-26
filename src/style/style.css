@@ -1,0 +1,184 @@
+:root {
+	--dark-grey-color: #333333;
+	--light-grey-color: #e7e7e7;
+	--grey-color: #828282
+}
+
+* {
+	padding: 0;
+	border: 0;
+	margin: 0;
+	font-family: 'Josefin Sans', sans-serif;
+	overflow-x: hidden;
+}
+
+.usernameContainer {
+	width: 100vw;
+	height: 64px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.usernameContainer p {
+	font-size: 24px;
+	color: var(--dark-grey-color);
+}
+
+.mainTitleContainer {
+	/* background-color: aquamarine; */
+	width: 100vw;
+	height: 96px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.mainTitleContainer p {
+	margin-bottom: -8px;
+	font-size: 100px;
+	color: var(--dark-grey-color);
+}
+
+.mainTitleContainer svg {
+	height: 2px;
+	width: 364px;
+	align-self: center; 
+}
+
+.mainTitleContainer svg line {
+	stroke:#333333;
+	stroke-width: 5px;
+}
+
+.addNewTaskContainer {
+	width: 100vw;
+	height: 60px;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+
+.addNewTaskContainer .newTaskBox {
+	display: flex;
+	width: 295px;
+	height: 36px;
+}
+
+
+.addNewTaskContainer .newTaskBox input {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 259px;
+	height: 36px;
+	color: var(--grey-color);	
+	background-color: var(--light-grey-color);
+	font-size: 24px;
+	text-align: center;
+}
+
+.addNewTaskContainer .newTaskBox input:focus {
+	/* outline: none !important; */
+	outline: 2px solid var(--dark-grey-color);
+}
+
+.addNewTaskContainer .newTaskBox .button {
+	display: flex;
+	justify-content: center;
+	background-color: var(--dark-grey-color);
+	width: 36px;
+	height: 36px;
+}
+
+.addNewTaskContainer .newTaskBox .button img{
+	color: var(--light-grey-color);
+}
+
+
+
+
+.tasksToDoContainer {
+	display: flex;
+	width: 100vw;
+	justify-content: center;
+}
+
+.tasksToDo {
+	width: 100%;
+	display: grid;
+	grid-gap: 24px;
+	grid-template-columns: repeat(auto-fit, 330px);
+	margin: 24px;
+	padding-right: 4px;
+	justify-content: center;
+
+}
+
+.tasks {
+	width: 330px;
+	height: 112px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	background-color: rgb(226, 215, 55);
+}
+
+.tasks:hover {
+	box-shadow: 4px 4px var(--dark-grey-color);
+}
+
+.tasks .taskHeader {
+	margin-top: 7px;
+	margin-bottom: 7px;
+	width: 316px;
+	height: 20px;
+	/* background-color: brown; */
+	display: flex;
+	justify-content: space-between;
+}
+
+.tasks .taskHeader .changeColorButton {
+	width: 14px;
+	height: 14px;
+	overflow: hidden;
+	background-color: var(--dark-grey-color);
+}
+
+.tasks .taskHeader p {
+	font-size: 18px;
+	overflow: hidden;
+}
+
+.tasks .taskContent {
+	overflow-y: hidden;
+	width: 302px;
+	height: 50px;
+	/* background-color: #fff; */
+	display: flex;
+	align-items: flex-start;
+}
+
+.tasks .taskContent p {
+	font-size: 24px;
+}
+
+.tasks .doneButton {
+	width: 74px;
+	height: 28px;
+	align-self: flex-end;
+	background-color: #27ae60;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.tasks .doneButton p {
+	font-size: 24px;
+	color: white;
+	margin-bottom: -5px;
+}
