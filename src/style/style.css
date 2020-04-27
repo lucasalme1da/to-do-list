@@ -1,5 +1,7 @@
 :root {
 	--dark-grey-color: #333333;
+	--lightdark-grey-color: #424242;
+	--darklight-grey-color: #969696;
 	--light-grey-color: #e7e7e7;
 	--grey-color: #828282
 }
@@ -12,6 +14,26 @@
 	overflow-x: hidden;
 }
 
+/* width */
+::-webkit-scrollbar {
+	width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+	background: var(--light-grey-color);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+	background:var(--lightdark-grey-color);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+	background: var(--dark-grey-color);
+  }
+
 .usernameContainer {
 	width: 100vw;
 	height: 64px;
@@ -21,6 +43,7 @@
 }
 
 .usernameContainer p {
+	cursor: default;
 	font-size: 24px;
 	color: var(--dark-grey-color);
 }
@@ -36,7 +59,8 @@
 	flex-wrap: wrap;
 }
 
-.mainTitleContainer p {
+.mainTitleContainer p {	
+	cursor: default;
 	margin-bottom: -8px;
 	font-size: 100px;
 	color: var(--dark-grey-color);
@@ -83,9 +107,11 @@
 .addNewTaskContainer .newTaskBox input:focus {
 	/* outline: none !important; */
 	outline: 2px solid var(--dark-grey-color);
+	color: var(--dark-grey-color);
 }
 
 .addNewTaskContainer .newTaskBox .button {
+	cursor: pointer;
 	display: flex;
 	justify-content: center;
 	background-color: var(--dark-grey-color);
@@ -96,9 +122,6 @@
 .addNewTaskContainer .newTaskBox .button img{
 	color: var(--light-grey-color);
 }
-
-
-
 
 .tasksToDoContainer {
 	display: flex;
@@ -112,7 +135,7 @@
 	grid-gap: 24px;
 	grid-template-columns: repeat(auto-fit, 330px);
 	margin: 24px;
-	padding-right: 4px;
+	padding: 4px;
 	justify-content: center;
 
 }
@@ -125,9 +148,14 @@
 	align-items: center;
 	justify-content: flex-start;
 	background-color: rgb(226, 215, 55);
+	transition: 0.2s;
 }
 
 .tasks:hover {
+	margin-top: -2px;
+	margin-left: -2px;
+	margin-right: 2px;
+	margin-bottom: 2px;
 	box-shadow: 4px 4px var(--dark-grey-color);
 }
 
@@ -148,7 +176,8 @@
 	background-color: var(--dark-grey-color);
 }
 
-.tasks .taskHeader p {
+.tasks .taskHeader p {	
+	cursor: default;
 	font-size: 18px;
 	overflow: hidden;
 }
@@ -162,7 +191,8 @@
 	align-items: flex-start;
 }
 
-.tasks .taskContent p {
+.tasks .taskContent p {	
+	cursor: default;
 	font-size: 24px;
 }
 
@@ -178,6 +208,130 @@
 }
 
 .tasks .doneButton p {
+	cursor: default;
+	font-size: 24px;
+	color: white;
+	margin-bottom: -5px;
+}
+
+.showFinishedButtonContainer {
+	width: 100vw;
+	height: 36px;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.showFinishedButtonContainer button {
+	width: 170px;
+	height: 36px;
+	background-color: var(--dark-grey-color);
+	margin-right: 36px;
+	transition: 0.2s
+}
+
+.showFinishedButtonContainer button:hover {
+	cursor: pointer;
+	background-color: var(--lightdark-grey-color);
+}
+
+.showFinishedButtonContainer button:active {
+	cursor: pointer;
+	background-color: var(--darklight-grey-color);
+}
+
+.showFinishedButtonContainer button p {
+	color: var(--light-grey-color);
+	font-size: 18px;
+}
+
+.tasksDoneContainer {
+	display: flex;
+	width: 100vw;
+	justify-content: center;
+}
+
+.tasksDone {
+	width: 100%;
+	display: grid;
+	grid-gap: 24px;
+	grid-template-columns: repeat(auto-fit, 330px);
+	margin: 24px;
+	padding: 4px;
+	justify-content: center;
+
+}
+
+.finishedTasks {
+	width: 330px;
+	height: 112px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	opacity: 90%;
+	background-color: rgb(226, 215, 55);
+	transition: 0.2s;
+}
+
+.finishedTasks:hover {
+	margin-top: -2px;
+	margin-left: -2px;
+	margin-right: 2px;
+	margin-bottom: 2px;
+	box-shadow: 4px 4px var(--dark-grey-color);
+}
+
+.finishedTasks .taskHeader {
+	margin-top: 7px;
+	margin-bottom: 7px;
+	width: 316px;
+	height: 20px;
+	/* background-color: brown; */
+	display: flex;
+	justify-content: space-between;
+}
+
+.finishedTasks .taskHeader .changeColorButton {
+	width: 14px;
+	height: 14px;
+	overflow: hidden;
+	background-color: var(--dark-grey-color);
+}
+
+.finishedTasks .taskHeader p {	
+	cursor: default;
+	font-size: 18px;
+	overflow: hidden;
+}
+
+.finishedTasks .taskContent {
+	overflow-y: hidden;
+	width: 302px;
+	height: 50px;
+	/* background-color: #fff; */
+	display: flex;
+	align-items: flex-start;
+}
+
+.finishedTasks .taskContent p {	
+	text-decoration: line-through;
+	cursor: default;
+	font-size: 24px;
+}
+
+.finishedTasks .doneButton {
+	width: 74px;
+	height: 28px;
+	align-self: flex-end;
+	background-color: #27ae60;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.finishedTasks .doneButton p {
+	cursor: default;
 	font-size: 24px;
 	color: white;
 	margin-bottom: -5px;

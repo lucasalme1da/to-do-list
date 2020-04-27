@@ -25,10 +25,13 @@
 
 	<div id="addNewTaskContainerID" class="addNewTaskContainer">
 		<div id="newTaskBoxID" class="newTaskBox">
-			<input id="inputID" maxlength="50" placeholder="I have to..." />
-			<div id="buttonID" class="button">
-				<img src="src/assets/plusIcon.svg" />
-			</div>
+			<form onsubmit="taskManager.addTaskToDo(event)" class="newTaskBox" autocomplete="off">
+				<input AutoCompleteType="Disabled" id="inputID" maxlength="50" placeholder="I have to..." autofocus />
+				<!-- onclick="taskManager.addTaskToDo()" -->
+				<button id="buttonID" class="button">
+					<img src="src/assets/plusIcon.svg" />
+				</button>
+			</form>
 		</div>
 	</div>
 
@@ -45,11 +48,12 @@
 				<div class="taskContent">
 					<p id="taskContentID">Go to supermarket to buy some food</p>
 				</div>
-				<div class="doneButton">
+				<!-- <div class="doneButton">
 					<p id="doneButtonID">done!</p>
-				</div>
+				</div> -->
 			</div>
-			<div id="task2" class="tasks" style="background-color: #6fcf97;">
+
+			<!-- <div id="task2" class="tasks" style="background-color: #6fcf97;">
 				<div id="taskHeaderID" class="taskHeader">
 					<div id="changeColorButtonID" class="changeColorButton"></div>
 					<p id="taskDateID">
@@ -59,10 +63,11 @@
 				<div class="taskContent">
 					<p id="taskContentID">Cancel netflix and subscribe to amazon prime</p>
 				</div>
-				<!-- <div class="doneButton">
+				<div class="doneButton">
 					<p id="doneButtonID">done!</p>
-				</div> -->
+				</div>
 			</div>
+
 			<div id="task3" class="tasks" style="background-color: #56ccf2;">
 				<div id="taskHeaderID" class="taskHeader">
 					<div id="changeColorButtonID" class="changeColorButton"></div>
@@ -73,10 +78,11 @@
 				<div class="taskContent">
 					<p id="taskContentID">Clean up the kitchen</p>
 				</div>
-				<!-- <div class="doneButton">
+				<div class="doneButton">
 					<p id="doneButtonID">done!</p>
-				</div> -->
+				</div>
 			</div>
+
 			<div id="task4" class="tasks" style="background-color: #bb6bd9;">
 				<div id="taskHeaderID" class="taskHeader">
 					<div id="changeColorButtonID" class="changeColorButton"></div>
@@ -87,10 +93,11 @@
 				<div class="taskContent">
 					<p id="taskContentID">Pay may/2020 bills</p>
 				</div>
-				<!-- <div class="doneButton">
+				<div class="doneButton">
 					<p id="doneButtonID">done!</p>
-				</div> -->
+				</div>
 			</div>
+
 			<div id="task5" class="tasks" style="background-color: #f2994a;">
 				<div id="taskHeaderID" class="taskHeader">
 					<div id="changeColorButtonID" class="changeColorButton"></div>
@@ -101,12 +108,61 @@
 				<div class="taskContent">
 					<p id="taskContentID">Buy a new keyboard to upgrade my setup</p>
 				</div>
-				<!-- <div class="doneButton">
+				<div class="doneButton">
 					<p id="doneButtonID">done!</p>
 				</div> -->
+
+
+		</div>
+
+	</div>
+	</div>
+
+	<div id="showFinishedButtonContainerID" class="showFinishedButtonContainer">
+		<button id="showFinishedButtonID" class="showFinishedButton">
+			<p>Show Finished</p>
+		</button>
+	</div>
+
+	<div id="tasksDoneContainerID" class="tasksDoneContainer">
+		<div id="tasksDoneID" class="tasksDone">
+			<!-- <div id="task1" class="finishedTasks" style="background-color: #f2c94c;">
+				<div id="taskHeaderID" class="taskHeader">
+					<div id="changeColorButtonID" class="changeColorButton"></div>
+					<p id="taskDateID">
+						26/04
+					</p>
+				</div>
+				<div class="taskContent">
+					<p id="taskContentID">Go to supermarket to buy some food</p>
+				</div>
 			</div>
 
+			<div id="task2" class="finishedTasks" style="background-color: #6fcf97;">
+				<div id="taskHeaderID" class="taskHeader">
+					<div id="changeColorButtonID" class="changeColorButton"></div>
+					<p id="taskDateID">
+						26/04
+					</p>
+				</div>
+				<div class="taskContent">
+					<p id="taskContentID">Cancel netflix and subscribe to amazon prime</p>
+				</div> -->
 
+		</div>
+	</div>
+	</div>
+
+
+
+
+
+
+
+	<script src="src/script/Task.js"></script>
+	<script src="src/script/TaskList.js"></script>
+	<script src="src/script/TaskManager.js"></script>
+	<script>let taskManager = new TaskManager()</script>
 
 </body>
 
