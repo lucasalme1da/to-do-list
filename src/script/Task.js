@@ -1,12 +1,17 @@
 class Task {
 
-	constructor(text) {
+	constructor(task) {
 
-		this._color = '#6fcf97'
-		this._data = new Date()
-		this._text = text
-		this._status = true
+		this._color = task.color ?? '#6fcf97'
+		this._data = task.data ? new Date(`${task.data}`) : new Date()
+		this._text = task.text ?? ':D'
+		this._status = task.status ?? true
 		this._taskElement = this.createElement()
+		// this._color = '#6fcf97'
+		// this._data = new Date()
+		// this._text = text
+		// this._status = true
+		// this._taskElement = this.createElement()
 	}
 
 	get color() {
@@ -29,6 +34,12 @@ class Task {
 		return this._taskElement
 	}
 
+
+	fullMonth() {
+		let month = this._data.getMonth()
+		return [9, 10, 11].includes(month) ? month + 1 : '0' + (month + 1)
+	}
+
 	createElement() {
 		let element = document.createElement('div')
 		element.className = 'tasks'
@@ -38,7 +49,7 @@ class Task {
 		<div id="taskHeaderID" class="taskHeader">
 			<div id="changeColorButtonID" class="changeColorButton"></div>
 			<p id="taskDateID">
-			${this._data.getDate()}/0${this._data.getMonth()}
+			${this._data.getDate()}/${this.fullMonth()}
 			</p>
 		</div>
 		<div class="taskContent">

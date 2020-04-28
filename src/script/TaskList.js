@@ -1,7 +1,7 @@
 class TaskList {
 
-	constructor() {
-		this._taskList = []
+	constructor(list) {
+		this._taskList = list
 	}
 
 	get taskList() {

@@ -6,7 +6,10 @@
 	--grey-color: #f2efff;
 	--done-green-color: #27ae60;
 	--light-done-green-color: #2dc76d;
-	--verylight-done-green-color: #32e07b;
+	--verylight-done-green-color: #39eb83;
+	--delete-red-color: #eb5757;
+	--light-delete-red-color: #eb5e5e;
+	--verylight-delete-red-color: #ff6b6b;
 }
 
 body {
@@ -224,7 +227,7 @@ body {
 }
 
 .tasks .doneButton:active {
-	background-color: var(--very-light-done-green-color);
+	background-color: var(--verylight-done-green-color);
 }
 
 .tasks .doneButton p {
@@ -343,15 +346,22 @@ body {
 	width: 74px;
 	height: 28px;
 	align-self: flex-end;
-	background-color: var(--done-green-color);
+	background-color: var(--delete-red-color);
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
 }
 
+.finishedTasks .doneButton:hover {
+	background-color: var(--light-delete-red-color);
+}
+
+.finishedTasks .doneButton:active {
+	background-color: var(--verylight-delete-red-color);
+}
+
 .finishedTasks .doneButton p {
-	cursor: default;
 	font-size: 24px;
 	color: white;
 	margin-bottom: -5px;

@@ -29,6 +29,12 @@ class FinishedTask {
 		return this._taskElement
 	}
 
+	fullMonth() {
+		let month = this._data.getMonth()
+		return [9, 10, 11].includes(month) ? month + 1 : '0' + (month + 1)
+	}
+
+
 	createElement() {
 		let element = document.createElement('div')
 		element.className = 'finishedTasks'
@@ -38,13 +44,47 @@ class FinishedTask {
 		<div id="taskHeaderID" class="taskHeader">
 			<div id="changeColorButtonID" class="changeColorButton"></div>
 			<p id="taskDateID">
-			${this._data.getDate()}/0${this._data.getMonth()}
+			${this._data.getDate()}/${this.fullMonth()}
 			</p>
 		</div>
 		<div class="taskContent">
 			<p id="taskContentID">${this._text}</p>
 		</div>
+		<button class="doneButton" onclick="taskManager.deleteTask(this.parentElement)"><p>delete</p></button>
 				`
+		element.addEventListener('mouseenter', () => {
+			element.querySelector('button').animate([
+				{
+					opacity: 0,
+					width: "0px"
+				},
+				{
+					opacity: 1,
+					width: "74px"
+				}
+			], {
+				duration: 200,
+				fill: "forwards"
+			})
+		}, false)
+
+		element.onmouseleave = () => {
+			element.querySelector('button').animate([
+				{
+					opacity: 1,
+					width: "74px"
+				},
+				{
+					opacity: 0,
+					width: "0px"
+				}
+			], {
+				duration: 200,
+				fill: "forwards"
+			})
+
+		}
+
 
 		return element
 	}

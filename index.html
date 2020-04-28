@@ -25,10 +25,10 @@
 
 	<div id="addNewTaskContainerID" class="addNewTaskContainer">
 		<div id="newTaskBoxID" class="newTaskBox">
-			<form onsubmit="taskManager.addTaskToDo(event)" class="newTaskBox" autocomplete="off">
+			<form onsubmit="taskManager.addTask(event)" class="newTaskBox" autocomplete="off">
 				<input AutoCompleteType="Disabled" id="inputID" maxlength="50" placeholder="I have to..." autofocus />
 				<!-- onclick="taskManager.addTaskToDo()" -->
-				<button id="buttonID" class="button">
+				<button id="buttonID" class="button" type="submit">
 					<img src="src/assets/plusIcon.svg" />
 				</button>
 			</form>
