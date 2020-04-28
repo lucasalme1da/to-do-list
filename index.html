@@ -38,7 +38,7 @@
 	<div id="tasksToDoContainerID" class="tasksToDoContainer">
 		<div id="tasksToDoID" class="tasksToDo">
 
-			<div id="task1" class="tasks" style="background-color: #f2c94c;">
+			<!-- <div id="task1" class="tasks" style="background-color: #f2c94c;">
 				<div id="taskHeaderID" class="taskHeader">
 					<div id="changeColorButtonID" class="changeColorButton"></div>
 					<p id="taskDateID">
@@ -48,10 +48,10 @@
 				<div class="taskContent">
 					<p id="taskContentID">Go to supermarket to buy some food</p>
 				</div>
-				<!-- <div class="doneButton">
+				<div class="doneButton">
 					<p id="doneButtonID">done!</p>
-				</div> -->
-			</div>
+				</div>
+			</div> -->
 
 			<!-- <div id="task2" class="tasks" style="background-color: #6fcf97;">
 				<div id="taskHeaderID" class="taskHeader">
@@ -119,7 +119,7 @@
 	</div>
 
 	<div id="showFinishedButtonContainerID" class="showFinishedButtonContainer">
-		<button id="showFinishedButtonID" class="showFinishedButton">
+		<button id="showFinishedButtonID" class="showFinishedButton" onclick="taskManager.showFinishedTasks()">
 			<p>Show Finished</p>
 		</button>
 	</div>
@@ -147,10 +147,10 @@
 				</div>
 				<div class="taskContent">
 					<p id="taskContentID">Cancel netflix and subscribe to amazon prime</p>
-				</div> -->
+				</div>
 
+			</div> -->
 		</div>
-	</div>
 	</div>
 
 
@@ -160,6 +160,7 @@
 
 
 	<script src="src/script/Task.js"></script>
+	<script src="src/script/FinishedTask.js"></script>
 	<script src="src/script/TaskList.js"></script>
 	<script src="src/script/TaskManager.js"></script>
 	<script>let taskManager = new TaskManager()</script>

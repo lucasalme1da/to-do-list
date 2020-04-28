@@ -3,7 +3,14 @@
 	--lightdark-grey-color: #424242;
 	--darklight-grey-color: #969696;
 	--light-grey-color: #e7e7e7;
-	--grey-color: #828282
+	--grey-color: #f2efff;
+	--done-green-color: #27ae60;
+	--light-done-green-color: #2dc76d;
+	--verylight-done-green-color: #32e07b;
+}
+
+body {
+	background-color: #eef0ff;
 }
 
 * {
@@ -152,10 +159,10 @@
 }
 
 .tasks:hover {
-	margin-top: -2px;
+	/* margin-top: -2px;
 	margin-left: -2px;
 	margin-right: 2px;
-	margin-bottom: 2px;
+	margin-bottom: 2px; */
 	box-shadow: 4px 4px var(--dark-grey-color);
 }
 
@@ -196,22 +203,34 @@
 	font-size: 24px;
 }
 
+
 .tasks .doneButton {
-	width: 74px;
+	width: 0px;
 	height: 28px;
+	opacity: 0;
 	align-self: flex-end;
-	background-color: #27ae60;
+	background-color: var(--done-green-color);
+	font-size: 24px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
+	transition: 0.2s;
+	outline: none;
+}
+
+.tasks .doneButton:hover {
+	background-color: var(--light-done-green-color);
+}
+
+.tasks .doneButton:active {
+	background-color: var(--very-light-done-green-color);
 }
 
 .tasks .doneButton p {
-	cursor: default;
-	font-size: 24px;
-	color: white;
 	margin-bottom: -5px;
+	color: white;
+	
 }
 
 .showFinishedButtonContainer {
@@ -226,7 +245,8 @@
 	height: 36px;
 	background-color: var(--dark-grey-color);
 	margin-right: 36px;
-	transition: 0.2s
+	transition: 0.2s;
+	outline: none;
 }
 
 .showFinishedButtonContainer button:hover {
@@ -245,7 +265,7 @@
 }
 
 .tasksDoneContainer {
-	display: flex;
+	display: none;
 	width: 100vw;
 	justify-content: center;
 }
@@ -274,10 +294,10 @@
 }
 
 .finishedTasks:hover {
-	margin-top: -2px;
+	/* margin-top: -2px;
 	margin-left: -2px;
 	margin-right: 2px;
-	margin-bottom: 2px;
+	margin-bottom: 2px; */
 	box-shadow: 4px 4px var(--dark-grey-color);
 }
 
@@ -323,7 +343,7 @@
 	width: 74px;
 	height: 28px;
 	align-self: flex-end;
-	background-color: #27ae60;
+	background-color: var(--done-green-color);
 	display: flex;
 	align-items: center;
 	justify-content: center;

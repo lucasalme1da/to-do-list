@@ -5,7 +5,7 @@ class TaskList {
 	}
 
 	get taskList() {
-		return [...this._taskList]
+		return this._taskList
 	}
 
 	addTask(text) {
@@ -14,7 +14,8 @@ class TaskList {
 
 	}
 
-	changeStatus(status) {
-
+	finishTask(task) {
+		let finishedTask = new FinishedTask(task)
+		this._taskList.push(finishedTask)
 	}
 }
