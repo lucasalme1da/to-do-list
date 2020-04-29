@@ -12,6 +12,22 @@
 
 <body>
 
+	<div id="catchUsernameID" class="catchUsername">
+		<div id="containerID" class="container">
+			<form onsubmit="taskManager.catchUsername(event)">
+				<div id="nameContainerID" class="nameContainer">
+					<p>My name is</p>
+					<input type="text" />
+				</div>
+				<div id="buttonContainerID" class="buttonContainer">
+					<button type="submit">
+						<p>Get Started!</p>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
 	<div id="usernameContainerID" class="usernameContainer">
 		<p>Lucas Almeida</p>
 	</div>
@@ -26,7 +42,7 @@
 	<div id="addNewTaskContainerID" class="addNewTaskContainer">
 		<div id="newTaskBoxID" class="newTaskBox">
 			<form onsubmit="taskManager.addTask(event)" class="newTaskBox" autocomplete="off">
-				<input AutoCompleteType="Disabled" id="inputID" maxlength="50" placeholder="I have to..." autofocus />
+				<input AutoCompleteType="Disabled" id="inputID" maxlength="50" placeholder="I have to..." />
 				<!-- onclick="taskManager.addTaskToDo()" -->
 				<button id="buttonID" class="button" type="submit">
 					<img src="src/assets/plusIcon.svg" />
@@ -37,85 +53,7 @@
 
 	<div id="tasksToDoContainerID" class="tasksToDoContainer">
 		<div id="tasksToDoID" class="tasksToDo">
-
-			<!-- <div id="task1" class="tasks" style="background-color: #f2c94c;">
-				<div id="taskHeaderID" class="taskHeader">
-					<div id="changeColorButtonID" class="changeColorButton"></div>
-					<p id="taskDateID">
-						26/04
-					</p>
-				</div>
-				<div class="taskContent">
-					<p id="taskContentID">Go to supermarket to buy some food</p>
-				</div>
-				<div class="doneButton">
-					<p id="doneButtonID">done!</p>
-				</div>
-			</div> -->
-
-			<!-- <div id="task2" class="tasks" style="background-color: #6fcf97;">
-				<div id="taskHeaderID" class="taskHeader">
-					<div id="changeColorButtonID" class="changeColorButton"></div>
-					<p id="taskDateID">
-						26/04
-					</p>
-				</div>
-				<div class="taskContent">
-					<p id="taskContentID">Cancel netflix and subscribe to amazon prime</p>
-				</div>
-				<div class="doneButton">
-					<p id="doneButtonID">done!</p>
-				</div>
-			</div>
-
-			<div id="task3" class="tasks" style="background-color: #56ccf2;">
-				<div id="taskHeaderID" class="taskHeader">
-					<div id="changeColorButtonID" class="changeColorButton"></div>
-					<p id="taskDateID">
-						26/04
-					</p>
-				</div>
-				<div class="taskContent">
-					<p id="taskContentID">Clean up the kitchen</p>
-				</div>
-				<div class="doneButton">
-					<p id="doneButtonID">done!</p>
-				</div>
-			</div>
-
-			<div id="task4" class="tasks" style="background-color: #bb6bd9;">
-				<div id="taskHeaderID" class="taskHeader">
-					<div id="changeColorButtonID" class="changeColorButton"></div>
-					<p id="taskDateID">
-						26/04
-					</p>
-				</div>
-				<div class="taskContent">
-					<p id="taskContentID">Pay may/2020 bills</p>
-				</div>
-				<div class="doneButton">
-					<p id="doneButtonID">done!</p>
-				</div>
-			</div>
-
-			<div id="task5" class="tasks" style="background-color: #f2994a;">
-				<div id="taskHeaderID" class="taskHeader">
-					<div id="changeColorButtonID" class="changeColorButton"></div>
-					<p id="taskDateID">
-						26/04
-					</p>
-				</div>
-				<div class="taskContent">
-					<p id="taskContentID">Buy a new keyboard to upgrade my setup</p>
-				</div>
-				<div class="doneButton">
-					<p id="doneButtonID">done!</p>
-				</div> -->
-
-
 		</div>
-
-	</div>
 	</div>
 
 	<div id="showFinishedButtonContainerID" class="showFinishedButtonContainer">
@@ -126,45 +64,17 @@
 
 	<div id="tasksDoneContainerID" class="tasksDoneContainer">
 		<div id="tasksDoneID" class="tasksDone">
-			<!-- <div id="task1" class="finishedTasks" style="background-color: #f2c94c;">
-				<div id="taskHeaderID" class="taskHeader">
-					<div id="changeColorButtonID" class="changeColorButton"></div>
-					<p id="taskDateID">
-						26/04
-					</p>
-				</div>
-				<div class="taskContent">
-					<p id="taskContentID">Go to supermarket to buy some food</p>
-				</div>
-			</div>
-
-			<div id="task2" class="finishedTasks" style="background-color: #6fcf97;">
-				<div id="taskHeaderID" class="taskHeader">
-					<div id="changeColorButtonID" class="changeColorButton"></div>
-					<p id="taskDateID">
-						26/04
-					</p>
-				</div>
-				<div class="taskContent">
-					<p id="taskContentID">Cancel netflix and subscribe to amazon prime</p>
-				</div>
-
-			</div> -->
 		</div>
 	</div>
 
-
-
-
-
-
+	<button onclick="taskManager.clearStorage()">reset</button>
 
 	<script src="src/script/Task.js"></script>
-	<script src="src/script/FinishedTask.js"></script>
+	<script src="src/script/ToDo.js"></script>
+	<script src="src/script/Done.js"></script>
 	<script src="src/script/TaskList.js"></script>
 	<script src="src/script/TaskManager.js"></script>
 	<script>let taskManager = new TaskManager()</script>
-
 </body>
 
 </html>

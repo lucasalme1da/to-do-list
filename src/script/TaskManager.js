@@ -2,8 +2,10 @@ class TaskManager {
 
 	constructor() {
 
-
 		let $ = document.querySelector.bind(document)
+		this._usernameContainer = $('#catchUsernameID')
+		this._usernameInput = $('#catchUsernameID #containerID #nameContainerID input')
+		this._usernamePElement = $('#usernameContainerID p')
 		this._tasksDoneContainer = $('#tasksDoneContainerID')
 		this._tasksToDoElement = $('#tasksToDoID')
 		this._tasksDoneElement = $('#tasksDoneID')
@@ -14,7 +16,6 @@ class TaskManager {
 		}
 		this._storage = localStorage
 		this.load()
-
 	}
 
 	render() {
@@ -37,13 +38,14 @@ class TaskManager {
 	addTask(e) {
 
 		e.preventDefault()
-		if (this._addInputElement.value === '') return
+		if (this._addInputElement.value.trim() === '') return
 		this._tasksToDoList.addTask({ text: this._addInputElement.value })
 		this.render()
 		this._addInputElement.value = ''
 	}
 
 	finishTask(element) {
+
 		this._tasksToDoList.taskList.forEach((e, index) => {
 			if (e.taskElement === element) {
 				this._tasksDoneList.finishTask(e)
@@ -76,9 +78,18 @@ class TaskManager {
 		}
 	}
 
+	catchUsername(e) {
+		e.preventDefault()
+		if (this._usernameInput.value.trim() === '') return
+
+		this._usernamePElement.innerHTML = this._usernameInput.value
+		this._usernameContainer.style['display'] = "none"
+		this._storage.setItem('username', this._usernameInput.value)
+		this._addInputElement.focus()
+	}
+
 	save() {
-		// salvar nome do usuario
-		// criar um array com as propriedades de cada task e salvar
+
 		let todos = []
 		this._tasksToDoList.taskList.forEach(t => {
 			let todo = {
@@ -90,18 +101,31 @@ class TaskManager {
 			todos.push(todo)
 		})
 		this._storage.setItem('todos', JSON.stringify(todos))
-		// this._tasksToDoList.addTask()
-		// console.log(JSON.stringify(this._tasksToDoList.taskList[0]));
-		// this._tasksToDoList.addTask(JSON.parse(JSON.stringify(this._tasksToDoList.taskList[0])))
-		// this._storage.setItem('tasks', JSON.stringify([...this._tasksToDoList.taskList]))
 
-
-		// this._storage.clear()
+		let dones = []
+		this._tasksDoneList.taskList.forEach(t => {
+			let done = {
+				color: t.color,
+				data: t.data,
+				text: t.text,
+				status: t.status
+			}
+			dones.push(done)
+		})
+		this._storage.setItem('dones', JSON.stringify(dones))
 
 	}
 
 	load() {
-		// this._storage.clear()
+
+		if (this._storage.getItem('username') != null) {
+			this._usernameContainer.style['display'] = "none"
+			this._usernamePElement.innerHTML = this._storage.getItem('username')
+			this._addInputElement.focus()
+		} else {
+			this._usernameContainer.style['display'] = "flex"
+			this._usernameInput.focus()
+		}
 
 		this._tasksToDoList = new TaskList([])
 		this._tasksDoneList = new TaskList([])
@@ -111,9 +135,22 @@ class TaskManager {
 			todos.forEach(todo => {
 				this._tasksToDoList.addTask(todo)
 			})
-			this.render()
 		}
 
+		let dones = JSON.parse(this._storage.getItem('dones'))
+		if (dones != null) {
+			dones.forEach(done => {
+				this._tasksDoneList.finishTask(done)
+				console.log('herer');
 
+			})
+
+		}
+		this.render()
+	}
+
+	clearStorage() {
+		// for development only
+		this._storage.clear()
 	}
 }

@@ -13,7 +13,7 @@
 }
 
 body {
-	background-color: #eef0ff;
+	background-color: white;
 }
 
 * {
@@ -44,6 +44,83 @@ body {
 	background: var(--dark-grey-color);
   }
 
+.catchUsername {
+	width: 100vw;
+	height: 80vh;
+	background-color:white;
+	z-index: 3;
+	position: fixed; 
+	display: none;
+	justify-content: center;
+	align-items: center; 
+	padding-bottom: 20vh;
+}
+
+.catchUsername .container {
+	width: 100vw;
+	height: 250px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center; 
+}
+
+.catchUsername .nameContainer {
+	width: 100vw;
+	height: 115px;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	margin-bottom: 10px;
+}
+
+.catchUsername .nameContainer p{
+	width: 286px;
+	font-size: 48px;
+	color: var(--dark-grey-color);
+}
+
+.catchUsername .nameContainer input{
+	outline: none;
+	box-shadow: inset 0px -4px 0px var(--dark-grey-color);
+	font-size: 48px;
+	text-align: center;
+	color: var(--dark-grey-color);
+	width: 400px;
+	height: 48px;
+}
+
+.catchUsername .buttonContainer {
+	width: 100vw;
+	height: 115px;
+	display: flex;
+	justify-content: center;
+}
+
+.catchUsername .buttonContainer button{
+	background-color: var(--dark-grey-color);
+	width: 312px;
+	height: 70px;
+}
+
+.catchUsername .buttonContainer button p{
+	font-size: 48px;
+	color: white;
+	margin-bottom: -10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .usernameContainer {
 	width: 100vw;
 	height: 64px;
@@ -61,7 +138,7 @@ body {
 .mainTitleContainer {
 	/* background-color: aquamarine; */
 	width: 100vw;
-	height: 96px;
+	height: 110px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -80,6 +157,29 @@ body {
 	height: 2px;
 	width: 364px;
 	align-self: center; 
+}
+
+@media screen and (max-width: 600px) {
+	.usernameContainer {
+		width: 100vw;
+		height: 50px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.mainTitleContainer p {	
+		cursor: default;
+		margin-bottom: -8px;
+		font-size: 17vw;
+		color: var(--dark-grey-color);
+	}
+
+	.mainTitleContainer svg {
+		height: 2px;
+		width: 60%;
+		align-self: center; 
+	}
 }
 
 .mainTitleContainer svg line {
@@ -162,10 +262,6 @@ body {
 }
 
 .tasks:hover {
-	/* margin-top: -2px;
-	margin-left: -2px;
-	margin-right: 2px;
-	margin-bottom: 2px; */
 	box-shadow: 4px 4px var(--dark-grey-color);
 }
 
@@ -174,7 +270,6 @@ body {
 	margin-bottom: 7px;
 	width: 316px;
 	height: 20px;
-	/* background-color: brown; */
 	display: flex;
 	justify-content: space-between;
 }
@@ -297,10 +392,6 @@ body {
 }
 
 .finishedTasks:hover {
-	/* margin-top: -2px;
-	margin-left: -2px;
-	margin-right: 2px;
-	margin-bottom: 2px; */
 	box-shadow: 4px 4px var(--dark-grey-color);
 }
 
@@ -309,7 +400,6 @@ body {
 	margin-bottom: 7px;
 	width: 316px;
 	height: 20px;
-	/* background-color: brown; */
 	display: flex;
 	justify-content: space-between;
 }
@@ -331,7 +421,6 @@ body {
 	overflow-y: hidden;
 	width: 302px;
 	height: 50px;
-	/* background-color: #fff; */
 	display: flex;
 	align-items: flex-start;
 }

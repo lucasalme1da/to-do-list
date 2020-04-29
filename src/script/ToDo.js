@@ -1,43 +1,15 @@
-class FinishedTask {
+class ToDo extends Task {
 
 	constructor(task) {
 
-		this._color = task.color
-		this._data = task.data
-		this._text = task.text
-		this._status = task.status
+		super(task)
 		this._taskElement = this.createElement()
 	}
 
-	get color() {
-		return this._color
-	}
-
-	get data() {
-		return this._data
-	}
-
-	get text() {
-		return this._text
-	}
-
-	get status() {
-		return this._status
-	}
-
-	get taskElement() {
-		return this._taskElement
-	}
-
-	fullMonth() {
-		let month = this._data.getMonth()
-		return [9, 10, 11].includes(month) ? month + 1 : '0' + (month + 1)
-	}
-
-
 	createElement() {
+
 		let element = document.createElement('div')
-		element.className = 'finishedTasks'
+		element.className = 'tasks'
 		element.style = `background-color: ${this._color};`
 
 		element.innerHTML = `
@@ -50,7 +22,7 @@ class FinishedTask {
 		<div class="taskContent">
 			<p id="taskContentID">${this._text}</p>
 		</div>
-		<button class="doneButton" onclick="taskManager.deleteTask(this.parentElement)"><p>delete</p></button>
+		<button class="doneButton" onclick="taskManager.finishTask(this.parentElement)"><p>done!</p></button>
 				`
 		element.addEventListener('mouseenter', () => {
 			element.querySelector('button').animate([
@@ -84,10 +56,6 @@ class FinishedTask {
 			})
 
 		}
-
-
 		return element
 	}
-
-
 }
