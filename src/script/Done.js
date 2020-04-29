@@ -11,7 +11,6 @@ class Done extends Task {
 		let element = document.createElement('div')
 		element.className = 'finishedTasks'
 		element.style = `background-color: ${this._color};`
-
 		element.innerHTML = `
 		<div id="taskHeaderID" class="taskHeader">
 			<div id="changeColorButtonID" class="changeColorButton"></div>
@@ -57,6 +56,8 @@ class Done extends Task {
 			})
 
 		}
+
+
 		return element
 	}
 }

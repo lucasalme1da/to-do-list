@@ -2,7 +2,7 @@ class Task {
 
 	constructor(task) {
 
-		this._color = task.color ?? '#6fcf97'
+		this._color = task.color ?? '#bbbbbb'
 		this._data = task.data ? new Date(`${task.data}`) : new Date()
 		this._text = task.text ?? ':D'
 		this._status = task.status ?? true
@@ -11,6 +11,10 @@ class Task {
 	get color() {
 
 		return this._color
+	}
+
+	set color(c) {
+		this._color = c
 	}
 
 	get data() {

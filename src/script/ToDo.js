@@ -56,6 +56,9 @@ class ToDo extends Task {
 			})
 
 		}
+
+		element.onclick = function () { taskManager.changeColor(this) }
+
 		return element
 	}
 }

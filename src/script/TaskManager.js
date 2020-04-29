@@ -27,8 +27,6 @@ class TaskManager {
 
 		this._tasksDoneElement.innerHTML = ''
 		this._tasksDoneList.taskList.forEach(e => {
-			console.log('preenchendo');
-
 			this._tasksDoneElement.appendChild(e.taskElement);
 		});
 
@@ -141,12 +139,25 @@ class TaskManager {
 		if (dones != null) {
 			dones.forEach(done => {
 				this._tasksDoneList.finishTask(done)
-				console.log('herer');
 
 			})
 
 		}
 		this.render()
+	}
+
+	changeColor(element) {
+
+		this._tasksToDoList.taskList.forEach((e, index) => {
+			if (e.taskElement === element) {
+				this._tasksToDoList.taskList[index].color =
+					Color.nextColor(this._tasksToDoList.taskList[index]
+						.taskElement.style['backgroundColor'])
+				this._tasksToDoList.taskList[index]
+					.taskElement.style['backgroundColor'] = this._tasksToDoList.taskList[index].color
+			}
+		})
+		this.save()
 	}
 
 	clearStorage() {
