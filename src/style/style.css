@@ -109,21 +109,16 @@ body {
 	margin-bottom: -10px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 .usernameContainer {
 	width: 100vw;
 	height: 64px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.usernameContainer div{
+
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -133,6 +128,43 @@ body {
 	cursor: default;
 	font-size: 24px;
 	color: var(--dark-grey-color);
+}
+
+.usernameContainer .edit {
+	outline: none;
+	display: none;
+	background-color: white;
+	margin: 6px;
+	cursor: pointer;
+}
+
+.usernameContainer form {
+	display: none;
+}
+
+.usernameContainer form input {
+	outline: none;
+	font-size: 24px;
+	box-shadow: inset 0px -2px 0px var(--dark-grey-color);
+	text-align: center;
+	color: var(--dark-grey-color);
+}
+
+.usernameContainer form .confirm {
+	outline: none;
+	background-color: white;
+	margin: 4px;
+	cursor: pointer;
+	display: flex;
+}
+
+.usernameContainer form .cancel {
+	outline: none;
+	background-color: white;
+	margin: 4px;
+	margin-left: 0px;
+	cursor: pointer;
+	display: flex;
 }
 
 .mainTitleContainer {
@@ -212,6 +244,7 @@ body {
 	background-color: var(--light-grey-color);
 	font-size: 24px;
 	text-align: center;
+
 }
 
 .addNewTaskContainer .newTaskBox input:focus {

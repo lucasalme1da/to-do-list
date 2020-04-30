@@ -164,4 +164,34 @@ class TaskManager {
 		// for development only
 		this._storage.clear()
 	}
+
+
+
+	changeUsername(container) {
+		container.onmouseover = ""
+		let $ = container.querySelector.bind(container)
+		$('p').style['display'] = 'none'
+		$('.edit').style['display'] = 'none'
+		$('form').style['display'] = 'flex'
+		$('form input').value = ''
+		$('form input').focus()
+	}
+
+	confirmUsername(container) {
+		container.onmouseover = function () { this.querySelector('div .edit').style['display'] = 'flex' }
+		let $ = container.querySelector.bind(container)
+		$('p').style['display'] = 'flex'
+		$('form').style['display'] = 'none'
+		if ($('form input').value.trim() === '') return
+		$('p').innerHTML = $('form input').value
+		this._storage.setItem('username', $('form input').value)
+		this._addInputElement.focus()
+	}
+
+	cancelChangeUsername(container) {
+		container.onmouseover = function () { this.querySelector('div .edit').style['display'] = 'flex' }
+		let $ = container.querySelector.bind(container)
+		$('p').style['display'] = 'flex'
+		$('form').style['display'] = 'none'
+	}
 }

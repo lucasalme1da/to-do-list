@@ -28,8 +28,27 @@
 		</div>
 	</div>
 
-	<div id="usernameContainerID" class="usernameContainer">
-		<p>Lucas Almeida</p>
+	<div id="usernameContainerID" class="usernameContainer"
+		onmouseover="this.querySelector('div .edit').style['display'] = 'flex'"
+		onmouseout="this.querySelector('div button').style['display'] = 'none'">
+		<p>Stop inspecting my elements!</p>
+
+		<button class="edit" onclick="taskManager.changeUsername(this.parentElement)">
+			<img src=" src/assets/edit.svg" />
+		</button>
+
+
+		<form onsubmit="event.preventDefault()">
+			<input type="text">
+			<button class="confirm" onclick="taskManager.confirmUsername(this.parentElement.parentElement)">
+				<img src=" src/assets/confirm.svg" />
+			</button>
+			<button class="cancel" onclick="taskManager.cancelChangeUsername(this.parentElement.parentElement)">
+				<img src=" src/assets/cancel.svg" />
+			</button>
+		</form>
+
+	</div>
 	</div>
 
 	<div id="mainTitleContainerID" class="mainTitleContainer">
@@ -42,7 +61,8 @@
 	<div id="addNewTaskContainerID" class="addNewTaskContainer">
 		<div id="newTaskBoxID" class="newTaskBox">
 			<form onsubmit="taskManager.addTask(event)" class="newTaskBox" autocomplete="off">
-				<input AutoCompleteType="Disabled" id="inputID" maxlength="50" placeholder="I have to..." />
+				<input AutoCompleteType="Disabled" id="inputID" maxlength="50" onblur="this.placeholder='I have to...'"
+					onfocus="this.placeholder = ''" />
 				<!-- onclick="taskManager.addTaskToDo()" -->
 				<button id="buttonID" class="button" type="submit">
 					<img src="src/assets/plusIcon.svg" />
