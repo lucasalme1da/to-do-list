@@ -4,9 +4,11 @@
 	--darklight-grey-color: #969696;
 	--light-grey-color: #e7e7e7;
 	--grey-color: #f2efff;
+
 	--done-green-color: #27ae60;
 	--light-done-green-color: #2dc76d;
 	--verylight-done-green-color: #39eb83;
+
 	--delete-red-color: #eb5757;
 	--light-delete-red-color: #eb5e5e;
 	--verylight-delete-red-color: #ff6b6b;
@@ -24,25 +26,21 @@ body {
 	overflow-x: hidden;
 }
 
-/* width */
 ::-webkit-scrollbar {
 	width: 8px;
   }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
+
+::-webkit-scrollbar-track {
 	background: var(--light-grey-color);
-  }
+}
   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
 	background:var(--lightdark-grey-color);
-  }
+}
   
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
 	background: var(--dark-grey-color);
-  }
+}
 
 .catchUsername {
 	width: 100vw;
@@ -81,13 +79,13 @@ body {
 }
 
 .catchUsername .nameContainer input{
+	width: 400px;
+	height: 48px;
 	outline: none;
 	box-shadow: inset 0px -4px 0px var(--dark-grey-color);
 	font-size: 48px;
 	text-align: center;
 	color: var(--dark-grey-color);
-	width: 400px;
-	height: 48px;
 }
 
 .catchUsername .buttonContainer {
@@ -98,9 +96,9 @@ body {
 }
 
 .catchUsername .buttonContainer button{
-	background-color: var(--dark-grey-color);
 	width: 312px;
 	height: 70px;
+	background-color: var(--dark-grey-color);
 }
 
 .catchUsername .buttonContainer button p{
@@ -118,7 +116,6 @@ body {
 }
 
 .usernameContainer div{
-
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -168,7 +165,6 @@ body {
 }
 
 .mainTitleContainer {
-	/* background-color: aquamarine; */
 	width: 100vw;
 	height: 110px;
 	display: flex;
@@ -186,32 +182,9 @@ body {
 }
 
 .mainTitleContainer svg {
-	height: 2px;
 	width: 364px;
+	height: 2px;
 	align-self: center; 
-}
-
-@media screen and (max-width: 600px) {
-	.usernameContainer {
-		width: 100vw;
-		height: 50px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.mainTitleContainer p {	
-		cursor: default;
-		margin-bottom: -8px;
-		font-size: 17vw;
-		color: var(--dark-grey-color);
-	}
-
-	.mainTitleContainer svg {
-		height: 2px;
-		width: 60%;
-		align-self: center; 
-	}
 }
 
 .mainTitleContainer svg line {
@@ -228,18 +201,18 @@ body {
 }
 
 .addNewTaskContainer .newTaskBox {
-	display: flex;
 	width: 295px;
 	height: 36px;
+	display: flex;
 }
 
 
 .addNewTaskContainer .newTaskBox input {
+	width: 259px;
+	height: 36px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 259px;
-	height: 36px;
 	color: var(--dark-grey-color);	
 	background-color: var(--light-grey-color);
 	font-size: 24px;
@@ -248,18 +221,17 @@ body {
 }
 
 .addNewTaskContainer .newTaskBox input:focus {
-	/* outline: none !important; */
 	outline: 2px solid var(--dark-grey-color);
 	color: var(--dark-grey-color);
 }
 
 .addNewTaskContainer .newTaskBox .button {
+	width: 36px;
+	height: 36px;
 	cursor: pointer;
 	display: flex;
 	justify-content: center;
 	background-color: var(--dark-grey-color);
-	width: 36px;
-	height: 36px;
 }
 
 .addNewTaskContainer .newTaskBox .button img{
@@ -267,20 +239,20 @@ body {
 }
 
 .tasksToDoContainer {
-	display: flex;
 	width: 100vw;
+	display: flex;
 	justify-content: center;
 }
 
 .tasksToDo {
 	width: 100%;
+	user-select: none;
 	display: grid;
 	grid-gap: 24px;
 	grid-template-columns: repeat(auto-fit, 330px);
 	margin: 24px;
 	padding: 4px;
 	justify-content: center;
-
 }
 
 .tasks {
@@ -299,10 +271,10 @@ body {
 }
 
 .tasks .taskHeader {
-	margin-top: 7px;
-	margin-bottom: 7px;
 	width: 316px;
 	height: 20px;
+	margin-top: 7px;
+	margin-bottom: 7px;
 	display: flex;
 	justify-content: space-between;
 }
@@ -321,10 +293,9 @@ body {
 }
 
 .tasks .taskContent {
-	overflow-y: hidden;
 	width: 302px;
 	height: 50px;
-	/* background-color: #fff; */
+	overflow-y: hidden;
 	display: flex;
 	align-items: flex-start;
 }
@@ -336,7 +307,6 @@ body {
 
 
 .tasks .doneButton {
-	width: 0px;
 	height: 28px;
 	opacity: 0;
 	align-self: flex-end;
@@ -396,8 +366,9 @@ body {
 }
 
 .tasksDoneContainer {
-	display: none;
 	width: 100vw;
+	user-select: none;
+	display: none;
 	justify-content: center;
 }
 
@@ -429,10 +400,10 @@ body {
 }
 
 .finishedTasks .taskHeader {
-	margin-top: 7px;
-	margin-bottom: 7px;
 	width: 316px;
 	height: 20px;
+	margin-top: 7px;
+	margin-bottom: 7px;
 	display: flex;
 	justify-content: space-between;
 }
@@ -451,9 +422,9 @@ body {
 }
 
 .finishedTasks .taskContent {
-	overflow-y: hidden;
 	width: 302px;
 	height: 50px;
+	overflow-y: hidden;
 	display: flex;
 	align-items: flex-start;
 }
@@ -467,6 +438,7 @@ body {
 .finishedTasks .doneButton {
 	width: 74px;
 	height: 28px;
+	opacity: 0;
 	align-self: flex-end;
 	background-color: var(--delete-red-color);
 	display: flex;
@@ -487,4 +459,27 @@ body {
 	font-size: 24px;
 	color: white;
 	margin-bottom: -5px;
+}
+
+@media screen and (max-width: 600px) {
+	.usernameContainer {
+		width: 100vw;
+		height: 50px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.mainTitleContainer p {	
+		cursor: default;
+		margin-bottom: -8px;
+		font-size: 17vw;
+		color: var(--dark-grey-color);
+	}
+
+	.mainTitleContainer svg {
+		width: 60%;
+		height: 2px;
+		align-self: center; 
+	}
 }

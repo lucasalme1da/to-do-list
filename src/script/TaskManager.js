@@ -3,6 +3,7 @@ class TaskManager {
 	constructor() {
 
 		let $ = document.querySelector.bind(document)
+		this._title = $('title')
 		this._usernameContainer = $('#catchUsernameID')
 		this._usernameInput = $('#catchUsernameID #containerID #nameContainerID input')
 		this._usernamePElement = $('#usernameContainerID p')
@@ -11,9 +12,7 @@ class TaskManager {
 		this._tasksDoneElement = $('#tasksDoneID')
 		this._addButonElement = $('#buttonID')
 		this._addInputElement = $('#inputID')
-		this._showFinishedButton = {
-			element: $('#showFinishedButtonID'), state: 'unshowing'
-		}
+		this._showFinishedButton = { element: $('#showFinishedButtonID'), state: 'unshowing' }
 		this._storage = localStorage
 		this.load()
 	}
@@ -65,24 +64,26 @@ class TaskManager {
 
 	showFinishedTasks() {
 
-		if (this._showFinishedButton.state === 'unshowing') {
-			this._showFinishedButton.state = 'showing'
-			this._showFinishedButton.element.innerHTML = '<p>Unshow Finished</p>'
+		let button = this._showFinishedButton
+		if (button.state === 'unshowing') {
+			button.state = 'showing'
+			button.element.innerHTML = '<p>Unshow Finished</p>'
 			this._tasksDoneContainer.style["display"] = "flex"
 		} else {
-			this._showFinishedButton.state = 'unshowing'
-			this._showFinishedButton.element.innerHTML = '<p>Show Finished</p>'
+			button.state = 'unshowing'
+			button.element.innerHTML = '<p>Show Finished</p>'
 			this._tasksDoneContainer.style["display"] = "none"
 		}
 	}
 
 	catchUsername(e) {
+
 		e.preventDefault()
 		if (this._usernameInput.value.trim() === '') return
-
 		this._usernamePElement.innerHTML = this._usernameInput.value
 		this._usernameContainer.style['display'] = "none"
 		this._storage.setItem('username', this._usernameInput.value)
+		this.changeTitle(this._usernameInput.value)
 		this._addInputElement.focus()
 	}
 
@@ -116,9 +117,12 @@ class TaskManager {
 
 	load() {
 
-		if (this._storage.getItem('username') != null) {
+		let user = this._storage.getItem('username')
+
+		if (user != null) {
 			this._usernameContainer.style['display'] = "none"
-			this._usernamePElement.innerHTML = this._storage.getItem('username')
+			this._usernamePElement.innerHTML = user
+			this.changeTitle(user)
 			this._addInputElement.focus()
 		} else {
 			this._usernameContainer.style['display'] = "flex"
@@ -143,6 +147,7 @@ class TaskManager {
 			})
 
 		}
+
 		this.render()
 	}
 
@@ -165,8 +170,6 @@ class TaskManager {
 		this._storage.clear()
 	}
 
-
-
 	changeUsername(container) {
 		container.onmouseover = ""
 		let $ = container.querySelector.bind(container)
@@ -175,6 +178,11 @@ class TaskManager {
 		$('form').style['display'] = 'flex'
 		$('form input').value = ''
 		$('form input').focus()
+		document.addEventListener("click", e => {
+			if (e.target !== $('form input') && e.target !== $('.edit img')) {
+				this.cancelChangeUsername(container)
+			}
+		}, false)
 	}
 
 	confirmUsername(container) {
@@ -185,6 +193,7 @@ class TaskManager {
 		if ($('form input').value.trim() === '') return
 		$('p').innerHTML = $('form input').value
 		this._storage.setItem('username', $('form input').value)
+		this.changeTitle($('form input').value)
 		this._addInputElement.focus()
 	}
 
@@ -193,5 +202,14 @@ class TaskManager {
 		let $ = container.querySelector.bind(container)
 		$('p').style['display'] = 'flex'
 		$('form').style['display'] = 'none'
+		document.removeEventListener("click", e => {
+			if (e.target !== $('form input') && e.target !== $('.edit img')) {
+				this.cancelChangeUsername(container)
+			}
+		}, false)
+	}
+
+	changeTitle(text) {
+		this._title.innerHTML = `To-Do • ${text}`
 	}
 }

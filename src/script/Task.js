@@ -4,7 +4,7 @@ class Task {
 
 		this._color = task.color ?? '#bbbbbb'
 		this._data = task.data ? new Date(`${task.data}`) : new Date()
-		this._text = task.text ?? ':D'
+		this._text = task.text ?? 'You\'re very clever :D'
 		this._status = task.status ?? true
 	}
 
@@ -13,8 +13,9 @@ class Task {
 		return this._color
 	}
 
-	set color(c) {
-		this._color = c
+	set color(color) {
+
+		this._color = color
 	}
 
 	get data() {
