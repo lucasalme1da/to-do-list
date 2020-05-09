@@ -38,9 +38,20 @@ class Task {
 		return this._taskElement
 	}
 
+	fullDate() {
+
+		let day = this._data.getDate()
+		return [...Array(10).keys()].slice(1).includes(day) ? '0' + day : day
+	}
+
 	fullMonth() {
 
 		let month = this._data.getMonth()
 		return [9, 10, 11].includes(month) ? month + 1 : '0' + (month + 1)
+	}
+
+	shortYear() {
+
+		return this._data.getFullYear() - 2000
 	}
 }

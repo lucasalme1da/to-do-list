@@ -10,6 +10,11 @@ class TaskList {
 		return this._taskList
 	}
 
+	set taskList(taskList) {
+
+		this._taskList = taskList
+	}
+
 	addTask(text) {
 
 		let newTask = new ToDo(text)

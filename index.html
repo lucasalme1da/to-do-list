@@ -17,7 +17,7 @@
 			<form onsubmit="taskManager.catchUsername(event)">
 				<div id="nameContainerID" class="nameContainer">
 					<p>My name is</p>
-					<input type="text" />
+					<input type="text" spellcheck="false" />
 				</div>
 				<div id="buttonContainerID" class="buttonContainer">
 					<button type="submit">
@@ -28,26 +28,23 @@
 		</div>
 	</div>
 
-	<div id="usernameContainerID" class="usernameContainer"
-		onmouseover="this.querySelector('div .edit').style['display'] = 'flex'"
-		onmouseout="this.querySelector('div button').style['display'] = 'none'">
-		<p>Stop inspecting my elements!</p>
-
-		<button class="edit" onclick="taskManager.changeUsername(this.parentElement)">
-			<img src=" src/assets/edit.svg" />
-		</button>
-
-
-		<form onsubmit="event.preventDefault()">
-			<input type="text">
-			<button class="confirm" onclick="taskManager.confirmUsername(this.parentElement.parentElement)">
-				<img src=" src/assets/confirm.svg" />
+	<div id="usernameContainerID" class="usernameContainer">
+		<div onmouseover="this.querySelector('div .edit').style['display'] = 'flex'"
+			onmouseout="this.querySelector('div button').style['display'] = 'none'">
+			<p>Stop inspecting my elements!</p>
+			<button class="edit" onclick="taskManager.changeUsername(this.parentElement)">
+				<img src=" src/assets/edit.svg" />
 			</button>
-			<button class="cancel" onclick="taskManager.cancelChangeUsername(this.parentElement.parentElement)">
-				<img src=" src/assets/cancel.svg" />
-			</button>
-		</form>
-
+			<form onsubmit="event.preventDefault()">
+				<input type="text" spellcheck="false">
+				<button class="confirm" onclick="taskManager.confirmUsername(this.parentElement.parentElement)">
+					<img src=" src/assets/confirm.svg" />
+				</button>
+				<button class="cancel" onclick="taskManager.cancelChangeUsername(this.parentElement.parentElement)">
+					<img src=" src/assets/cancel.svg" />
+				</button>
+			</form>
+		</div>
 	</div>
 
 	<div id="mainTitleContainerID" class="mainTitleContainer">
@@ -60,9 +57,8 @@
 	<div id="addNewTaskContainerID" class="addNewTaskContainer">
 		<div id="newTaskBoxID" class="newTaskBox">
 			<form onsubmit="taskManager.addTask(event)" class="newTaskBox" autocomplete="off">
-				<input AutoCompleteType="Disabled" id="inputID" maxlength="50" onblur="this.placeholder='I have to...'"
-					onfocus="this.placeholder = ''" />
-				<!-- onclick="taskManager.addTaskToDo()" -->
+				<input spellcheck="false" AutoCompleteType="Disabled" id="inputID" maxlength="50"
+					onblur="this.placeholder='I have to...'" onfocus="this.placeholder = ''" />
 				<button id="buttonID" class="button" type="submit">
 					<img src="src/assets/plusIcon.svg" />
 				</button>
@@ -76,7 +72,8 @@
 	</div>
 
 	<div id="showFinishedButtonContainerID" class="showFinishedButtonContainer">
-		<button id="showFinishedButtonID" class="showFinishedButton" onclick="taskManager.showFinishedTasks()">
+		<button id="showFinishedButtonID" class="showFinishedButton disabledButton"
+			onclick="taskManager.showFinishedTasks()">
 			<p>Show Finished</p>
 		</button>
 	</div>
@@ -85,9 +82,6 @@
 		<div id="tasksDoneID" class="tasksDone">
 		</div>
 	</div>
-
-	<!-- Dev op -->
-	<!-- <button onclick="taskManager.clearStorage()">reset</button> -->
 
 	<script src="src/script/Task.js"></script>
 	<script src="src/script/ToDo.js"></script>
