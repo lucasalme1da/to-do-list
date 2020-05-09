@@ -30,9 +30,10 @@
 ## 🔧 Tecnologias
 
 <p> As tecnologias utilizadas nesse projeto:</p>
-<img src="https://img.shields.io/static/v1?label=Javascript&message= &logoColor=rgb(247,223,30)&color=rgb(247,223,30)&logo=javascript&style=flat-square"></img>
-<img src="https://img.shields.io/static/v1?label=HTML&message= &logoColor=rgb(227,79,38)&color=rgb(227,79,38)&logo=html5&style=flat-square"></img>
-<img src="https://img.shields.io/static/v1?label=CSS&message= &logoColor=rgb(21,114,182)&color=rgb(21,114,182)&logo=css3&style=flat-square"></img>
+
+![](https://img.shields.io/static/v1?label=Javascript&message=%20&logoColor=rgb(247,223,30)&color=rgb(247,223,30)&logo=javascript&style=flat-square)
+![](https://img.shields.io/static/v1?label=HTML&message=%20&logoColor=rgb(227,79,38)&color=rgb(227,79,38)&logo=html5&style=flat-square)
+![](https://img.shields.io/static/v1?label=CSS&message=%20&logoColor=rgb(21,114,182)&color=rgb(21,114,182)&logo=css3&style=flat-square)
 
 ## 💡 Funcionalidades 
 
